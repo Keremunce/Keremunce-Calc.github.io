@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="genel">
+        <p>
+            <input id="sayi1" type="text" placeholder="1.sayıyı giriniz.." width="240px">
+            <input id="sayi2" type="text" placeholder="2.sayıyı giriniz.." width="240px">
+        </p>
+        <p>
+
+            <button onclick="topla()">Toplama</button>
+            <button onclick="cikar()">Cikarma</button>
+            <button onclick="carp()">Carpma</button>
+            <button onclick="bol()">Bolme</button>
+        </p>
+        <p>
+            <input type="radio" name="durum" value="0">Toplama
+            <input type="radio" name="durum" value="1">Cikarma
+            <input type="radio" name="durum" value="2">Carpma
+            <input type="radio" name="durum" value="3">Bolme
+        </p>
+        <p>
+            <select id="secim">
+                <option value="1">Toplama</option>
+                <option value="2">Cikarma</option>
+                <option value="3">Carpma</option>
+                <option value="4">Bolme</option>
+            </select>
+        </p>
+        <p id="sonuc2"></p>
+        <p><input type="text" placeholder="Sonuc..." id="sonuc"></p>
+        <button onclick="radioislem()">RadioButtonSonuc</button>
+        <button onclick="islem()">CheckedButtonSonuc</button>
+    </div>
+    <script>
+        function topla() {
+            var sayi1 = document.getElementById("sayi1").value;
+            var sayi2 = document.getElementById("sayi2").value;
+
+            var toplam = parseInt(sayi1) + Number(sayi2);
+            document.getElementById("sonuc").value = toplam;
+            document.getElementById("sonuc2").innerHTML = toplam;
+        }
+
+        /*function topla() {
+            var sayi1 = document.getElementById("sayi1").value;
+            var sayi2 = document.getElementById("sayi2").value;
+            toplam = parseInt(sayi1) + Number(sayi2);
+            document.getElementById("sonuc2").innerHTML = toplam;
+            document.getElementById("sonuc").value = toplam;
+        }*/
+
+        function cikar() {
+            var sayi1 = document.getElementById("sayi1").value;
+            var sayi2 = document.getElementById("sayi2").value;
+
+            var toplam = parseInt(sayi1) - Number(sayi2);
+            document.getElementById("sonuc").value = toplam;
+            document.getElementById("sonuc2").innerHTML = toplam;
+        }
+
+        function carp() {
+            var sayi1 = document.getElementById("sayi1").value;
+            var sayi2 = document.getElementById("sayi2").value;
+
+            var toplam = parseInt(sayi1) * Number(sayi2);
+            document.getElementById("sonuc").value = toplam;
+            document.getElementById("sonuc2").innerHTML = toplam;
+        }
+
+        function bol() {
+
+            var sayi1 = document.getElementById("sayi1").value;
+            var sayi2 = document.getElementById("sayi2").value;
+
+            var toplam = parseInt(sayi1) / Number(sayi2);
+            document.getElementById("sonuc").value = toplam;
+            document.getElementById("sonuc2").innerHTML = toplam;
+        }
+
+        function radioislem() {
+            var secim = document.getElementsByName("durum");
+            if (secim[0].checked) {
+                topla();
+            }
+            if (secim[1].checked) {
+                cikar();
+            }
+            if (secim[2].checked) {
+                carp();
+            }
+            if (secim[3].checked) {
+                bol();
+            }
+
+        }
+
+        function islem() {
+            var deger = document.getElementById("secim");
+            if (deger[0].selected) {
+                topla();
+            }
+            if (deger[1].selected) {
+                cikar();
+            }
+            if (deger[2].selected) {
+                carp();
+            }
+            if (deger[3].selected) {
+                bol();
+            }
+
+        }
+    </script>
+    <style>
+        body {
+            background-color: #fbe101;
+        }
+        
+        button {
+            background-color: orange;
+            padding: 10px;
+            color: white;
+            box-shadow: 0px 10px #999;
+            /*border-radius: 15px;*/
+            outline: none;
+        }
+        
+        button:hover {
+            background-color: white;
+            color: orange;
+            cursor: pointer;
+            padding: 12px;
+        }
+        
+        button:active {
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+        
+        #genel {
+            background-color: whitesmoke;
+            margin: 60px auto;
+            width: 400px;
+            padding: 20px;
+            height: 300px;
+            border: 2px solid gray;
+            text-align: center;
+        }
+        
+        input#sayi1,
+        input#sayi2 {
+            padding: 10px 4px;
+        }
+    </style>
+
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="javascript" href="script.js">
+</head>
+<body>
+    <div id="genel">
+        <p>
+            <input type="text" id="sayi1" placeholder="1.sayıyı giriniz">
+            <input type="text" id="sayi2" placeholder="2.sayıyı giriniz">
+        </p>
+        <p>
+            <button onclick="topla()">Topla</button>
+            <button onclick="cikar()">Çıkar</button>
+            <button onclick="carp()">Çarp</button>
+            <button onclick="bol()">Böl</button>
+        </p>
+        <p>
+            <input type="radio" name="durum" value="0">Topla
+            <input type="radio" name="durum" value="1">Çıkar
+            <input type="radio" name="durum" value="2">Çarp
+            <input type="radio" name="durum" value="3">Böl
+        </p>
+        <p>
+            <select name="yil" id="secim">
+                <option value="1">Topla</option>
+                <option value="2">Çıkar</option>
+                <option value="3">Çarp</option>
+                <option value="4">Bol</option>
+            </select>
+        <p id="sonuc"> </p>
+        <p><input type="text" id="sonuc2" placeholder="Sonuc"></p>
+        <button onclick="islem()">RadioButtonSonuc</button>
+        <button onclick="islem2()">CheckedBoxSonuc</button>
+    </div>
+    <style>
+        body
+        {
+            background-color: orange;
+        }
+        #genel{border:2px solid gray;
+        width:400px;
+        padding:20px;
+        margin:60px auto;
+        background-color: whitesmoke;
+        text-align: center;
+        }
+        input#sayi1,input#sayi2{
+            padding: 10px 4px;
+            
+        }
+        button{
+            padding: 10px;
+            background-color: orange;
+            color:white;
+            border:2px gray solid;
+        }
+        button:hover{
+            background-color: white;
+            color:orange;
+        }
+    </style>
+    <script>
+        function topla(){
+            var sayi1=document.getElementById("sayi1").value;
+            var sayi2=document.getElementById("sayi2").value;
+
+                var toplam=parseInt(sayi1) + Number(sayi2);
+
+            document.getElementById("sonuc").innerHTML=toplam;//HTML elemanları içerisinde değer yazdırmak için
+            document.getElementById("sonuc2").value=toplam;//Form elemanlerı içerisinde değer yazdırmak için
+        }
+        function cikar(){
+            var sayi1=document.getElementById("sayi1").value;
+            var sayi2=document.getElementById("sayi2").value;
+
+                var cikar=parseInt(sayi1)-parseInt(sayi2);
+
+            document.getElementById("sonuc").innerHTML=cikar;//HTML elemanları içerisinde değer yazdırmak için
+            document.getElementById("sonuc2").value=cikar;//Form elemanlerı içerisinde değer yazdırmak için
+        }
+        function carp(){
+            var sayi1=document.getElementById("sayi1").value;
+            var sayi2=document.getElementById("sayi2").value;
+
+                var toplam=parseInt(sayi1)*Number(sayi2);
+
+            document.getElementById("sonuc").innerHTML=toplam;//HTML elemanları içerisinde değer yazdırmak için
+            document.getElementById("sonuc2").value=toplam;//Form elemanlerı içerisinde değer yazdırmak için
+        }
+        function bol(){
+            var sayi1=document.getElementById("sayi1").value;
+            var sayi2=document.getElementById("sayi2").value;
+
+                    var toplam=parseInt(sayi1)/Number(sayi2);
+
+            document.getElementById("sonuc").innerHTML=toplam;//HTML elemanları içerisinde değer yazdırmak için
+            document.getElementById("sonuc2").value=toplam;//Form elemanlerı içerisinde değer yazdırmak için
+        }
+        function islem(){
+            var secim=document.getElementsByName("durum"); 
+            if (secim[0].checked){
+                topla();
+            }
+            if (secim[1].checked){
+                cikar();
+            }
+            if (secim[2].checked){
+                carp();
+            }
+            if (secim[3].checked){
+                bol();
+            }
+        }
+        function islem2(){
+            var deger=document.getElementById("secim");
+            if (deger[0].selected){
+                topla();
+            }
+            if (deger[1].selected){
+                cikar();
+            }
+            if (deger[2].selected){
+                carp();
+            }
+            if (deger[3].selected){
+                bol();
+            }
+        }
+    </script>
+</body>
+</html>
